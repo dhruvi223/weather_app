@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect } from "react";
 import { useState } from "react";
 import { fetchForacastData } from "@/redux/actions/weatherAction";
 import { forecastDataMetric } from "@/redux/actions/weatherAction";
@@ -36,7 +35,6 @@ function ForcastData(props) {
   };
 
   const forecast = forecastData.list;
-
   const forecastm = forecastMData.list;
   const forecasti = forecastIData.list;
 

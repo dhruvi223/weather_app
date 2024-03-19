@@ -12,10 +12,17 @@ export const fetchCurrentData = (location) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+
       const result = res.json();
       return result;
     } catch (error) {
-      throw error;
+     if (error.message === 'Network Error' && !error.response){
+            toast.error('Network Error')
+       }
     }
   };
 };
@@ -30,10 +37,17 @@ export const fetchCurrentDataMetric = (location) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+
       const result = res.json();
       return result;
     } catch (error) {
-      throw error;
+      if (error.message === 'Network Error' && !error.response){
+           toast.error('Network Error')
+      }
     }
   };
 };
@@ -48,10 +62,17 @@ export const fetchCurrentDataImperial = (location) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+
       const result = res.json();
       return result;
     } catch (error) {
-      throw error;
+        if (error.message === 'Network Error' && !error.response){
+            toast.error('Network Error')
+       }
     }
   };
 };
@@ -66,10 +87,17 @@ export const fetchForacastData = (city) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+
       const result = res.json();
       return result;
     } catch (error) {
-      throw error;
+     if (error.message === 'Network Error' && !error.response){
+            toast.error('Network Error')
+       }
     }
   };
 };
@@ -84,6 +112,11 @@ export const forecastDataMetric = (city) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+
       const result = res.json();
       return result;
     } catch (error) {
@@ -102,10 +135,17 @@ export const forecastDataImperial = (city) => {
       if (res.status === 404) {
         toast.error("city is incorrect");
       }
+
+      if (res.status === 500) {
+        toast.error("server error");
+      }
+      
       const result = res.json();
       return result;
     } catch (error) {
-      throw error;
+        if (error.message === 'Network Error' && !error.response){
+            toast.error('Network Error')
+       }
     }
   };
 };
