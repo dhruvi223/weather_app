@@ -6,14 +6,13 @@ import { forecastReducer } from "./weatherReducer";
 import { forecastDataMetric } from "../actions/weatherAction";
 import { forecastDataImperial } from "../actions/weatherAction";
 
-
 const reducers = combineReducers({
-    currentData : currentDataReducer,
-    currentMData : currentDataMReducer,
-    currentIData : currentDataIReducer,
-    forcastData : forecastReducer,
-    forcastMetric : forecastDataMetric,
-    forecastImperial : forecastDataImperial
-})
+  currentData: currentDataReducer,
+  currentMData: currentDataMReducer,
+  currentIData: currentDataIReducer,
+  forcastData: forecastReducer,
+  forcastMetric: forecastDataMetric,
+  forecastImperial: forecastDataImperial,
+});
 
-export default reducers
+export default reducers;
