@@ -1,9 +1,6 @@
 "use client";
 import { ActionTypes } from "../constants/action-types";
-import { axios } from "axios";
 import { toast } from "react-hot-toast";
-
-const a = process.env.API_KEY;
 
 export const fetchCurrentData = (location) => {
   return async (dispatch) => {
@@ -12,7 +9,7 @@ export const fetchCurrentData = (location) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
@@ -30,7 +27,7 @@ export const fetchCurrentDataMetric = (location) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
@@ -48,7 +45,7 @@ export const fetchCurrentDataImperial = (location) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
@@ -66,7 +63,7 @@ export const fetchForacastData = (city) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
@@ -84,7 +81,7 @@ export const forecastDataMetric = (city) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
@@ -102,7 +99,7 @@ export const forecastDataImperial = (city) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
-      if (response.status === 404) {
+      if (res.status === 404) {
         toast.error("city is incorrect");
       }
       const result = res.json();
