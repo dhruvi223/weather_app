@@ -60,9 +60,9 @@ function FetchData() {
               <div>
                 <p className="flex gap-1 text-sm ">
                   {selectedUnit === "Fahrenheit" ? (
-                    <p>{imperial.main.temp}</p>
-                  ) : selectedUnit === "Celsius" ? (
                     <p>{metric.main.temp}</p>
+                  ) : selectedUnit === "Celsius" ? (
+                    <p>{imperial.main.temp}</p>
                   ) : selectedUnit === "Kelvin" ? (
                     <p>{currentData.main.temp}</p>
                   ) : (
