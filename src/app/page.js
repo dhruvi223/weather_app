@@ -6,7 +6,7 @@ const session = null;
 export default function Home() {
   // if (!session) throw Error('error')
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col justify-between p-24">
       <Toaster />
       <FetchData />
     </main>

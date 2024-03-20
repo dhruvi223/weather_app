@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 export const fetchCurrentData = (location) => {
   return async (dispatch) => {
     dispatch({ type: ActionTypes.CURRENT_DATA });
+    console.log('called');
     try {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -43,6 +44,7 @@ export const fetchCurrentDataMetric = (location) => {
       }
 
       const result = res.json();
+      console.log(result);
       return result;
     } catch (error) {
       if (error.message === 'Network Error' && !error.response){
@@ -77,12 +79,12 @@ export const fetchCurrentDataImperial = (location) => {
   };
 };
 
-export const fetchForacastData = (city) => {
+export const fetchForacastData = (location) => {
   return async (dispatch) => {
     dispatch({ type: ActionTypes.FORECAST });
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.NEXT_PUBLIC_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
       if (res.status === 404) {
         toast.error("city is incorrect");
@@ -102,12 +104,12 @@ export const fetchForacastData = (city) => {
   };
 };
 
-export const forecastDataMetric = (city) => {
+export const forecastDataMetric = (location) => {
   return async (dispatch) => {
     dispatch({ type: ActionTypes.FORECAST_METRIC });
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
       if (res.status === 404) {
         toast.error("city is incorrect");
@@ -125,12 +127,12 @@ export const forecastDataMetric = (city) => {
   };
 };
 
-export const forecastDataImperial = (city) => {
+export const forecastDataImperial = (location) => {
   return async (dispatch) => {
     dispatch({ type: ActionTypes.FORECAST_IMPERIAL });
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.NEXT_PUBLIC_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=${process.env.NEXT_PUBLIC_API_KEY}`
       );
       if (res.status === 404) {
         toast.error("city is incorrect");
@@ -139,7 +141,7 @@ export const forecastDataImperial = (city) => {
       if (res.status === 500) {
         toast.error("server error");
       }
-      
+
       const result = res.json();
       return result;
     } catch (error) {
